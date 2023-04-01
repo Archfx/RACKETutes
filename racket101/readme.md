@@ -47,7 +47,7 @@ $ racket
 ```
 
 But in our tutorials, we will be using Racket inside the Jupyter notebook environment. Setting up the environment with ease is discussed in my [previous post]().
-To get a head start, some interesting programming questions are solved in the [racket101.ipynb]()
+To get a head start, some interesting programming questions are solved in the [racket101.ipynb](https://github.com/Archfx/RACKETutes/blob/main/racket101/racket101.ipynb)
 
 Some useful links to get familiar with Racket
 
