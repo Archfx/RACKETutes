@@ -1,20 +1,17 @@
-RackeTutes
-===
-
   <picture>
-  <source srcset="/images/racketutes-w.svg" media="(prefers-color-scheme: dark)" width="80">
-    <img src="/images/racketutes.svg" width="80">
+  <source srcset="/images/racketutes-w.svg" media="(prefers-color-scheme: dark)">
+    <img src="/images/racketutes.svg">
   </picture>
 
 Installing dependencies, fixing issues and learning new things add too much of overhead to the learning curve. That is why this tutorial series is created. 
 
-This series is configured to run with Jupyter notebook with racket kernal. You can run all your racket experiments within the docker container without installing anything except docker. Credits to [rmculpepper](https://github.com/rmculpepper/iracket) for creating the kernel.
+RackeTutes series is configured to run with Jupyter notebook with racket kernel. You can run all your racket experiments within the docker container without installing anything except docker. Credits to [rmculpepper](https://github.com/rmculpepper/iracket) for creating the kernel.
 
 Installing Container
 ----
-First, we need to install docker on your system. For that you can follow the instructions available [here](https://docs.docker.com/engine/install/).
+First, we need to install docker on your system. For that, you can follow the instructions available [here](https://docs.docker.com/engine/install/).
 
-Then we need to clone the docker image with all the configurations from the docker-hub. For that you can use the below command while Docker daemon is running.
+Then we need to clone the docker image with all the configurations from the docker-hub. For that, you can use the below command while the Docker daemon is running.
 
 ```shell
 docker pull archfx/rosette
@@ -59,7 +56,7 @@ jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
 
 Click on the link that appears on the container terminal.
 
-If you prefer using VScode to access your racket kernal, you can simply do it by "select another kernal -> remote kernal " and copying the link from the container which looks like
+If you prefer using VScode to access your racket kernel, you can simply do it by "select another kernel -> remote kernel " and copying the link from the container which looks like
 
 ```shell
 http://127.0.0.1:8888/?token=91c5042b649115d20684412aeb83588ad8ce3c6ee0f96546

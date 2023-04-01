@@ -52,4 +52,4 @@ To get a head start, some interesting programming questions are solved in the [r
 Some useful links to get familiar with Racket
 
 - https://www2.cs.sfu.ca/CourseCentral/383/tjd/practice-racket-sol.html
-- 
+-

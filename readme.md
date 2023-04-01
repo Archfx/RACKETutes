@@ -1,13 +1,9 @@
-RACKETutes
-====
-
-
-  <picture>
-  <source srcset="/images/racketutes-w.svg" media="(prefers-color-scheme: dark)" width="80">
-    <img src="/images/racketutes.svg" width="80">
+ <picture>
+  <source srcset="/images/racketutes-w.svg" media="(prefers-color-scheme: dark)">
+    <img src="/images/racketutes.svg">
   </picture>
 
-Tutorial Series for Racket and Rosette solver-aided programming language to promote "Secure and validated" hardware designs.
+RackeTutes is a tutorial series for Racket and Rosette solver-aided programming language to promote "Secure and validated" hardware designs.
 
 1. [Setup]()
 2. [Racket101]()
