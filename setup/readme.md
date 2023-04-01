@@ -1,5 +1,10 @@
-RACKETutes
+RackeTutes
 ===
+
+  <picture>
+  <source srcset="/images/racketutes-w.svg" media="(prefers-color-scheme: dark)" width="80">
+    <img src="/images/racketutes.svg" width="80">
+  </picture>
 
 Installing dependencies, fixing issues and learning new things add too much of overhead to the learning curve. That is why this tutorial series is created. 
 
