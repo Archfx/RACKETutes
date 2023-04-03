@@ -3,7 +3,7 @@
     <img src="/images/racketutes.svg">
   </picture>
 
-Installing dependencies, fixing issues and learning new things add too much of overhead to the learning curve. That is why this tutorial series is created. 
+Installing dependencies, fixing issues, and learning new things add too much of overhead to the learning curve. That is why this tutorial series is created. 
 
 RackeTutes series is configured to run with Jupyter notebook with racket kernel. You can run all your racket experiments within the docker container without installing anything except docker. Credits to [rmculpepper](https://github.com/rmculpepper/iracket) for creating the kernel.
 
