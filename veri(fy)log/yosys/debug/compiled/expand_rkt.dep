@@ -1,0 +1,1 @@
+("8.7" ta6le ("bce437dccbae94be8cfd0b0e48948cb43cc2be31" . "0b5f45b47b6e5b31031085c43ec4dcd8ea7463e4") (collects #"racket" #"base.rkt") (collects #"racket" #"pretty.rkt") (collects #"racket" #"runtime-config.rkt") (collects #"rosette" #"safe.rkt") (collects #"syntax" #"parse.rkt") (collects #"yosys" #"verilog.rkt") (collects #"yosys" #"yosys.rkt"))
