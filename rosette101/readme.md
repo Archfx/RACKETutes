@@ -11,6 +11,27 @@ Get Set
 When it comes to validating designs and implementations, one thing is we can't visualize all the internal variables. These variables are sometimes constrained by different conditions. With Rosette, we can keep these variables as unknown variable variables which refers to the technical term of ```symbolic variables```. These variables are symbolically evaluated on the constraints that act on them. 
 
 
+
+Assertions and Assumptions
+---
+
+
+
+
+
+Verification
+---
+
+Program verification solves the problem of verifying the program for all the legal inputs. The brute force approach would be to iterate through all the values one by one. Although this sounds promising at capturing any bug if exists, in the case of a 32-bit adder circuit, input space would be $2^64$ which is a large number.
+Instead of going through the brute force path, Rosette delegates this task to `z3 constraint solver` with the help of `verify` query.
+
+
+Synthesis
+----
+
+
+
+
 Rosette Exercises
 ----
 
