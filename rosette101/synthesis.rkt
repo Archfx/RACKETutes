@@ -16,4 +16,7 @@
 (define binding
     (synthesize #:forall (list i)
                 #:guarantee (same poly factored i)))
+
+
 (print-forms binding)
+
