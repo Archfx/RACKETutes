@@ -1,1 +1,0 @@
-("8.7" ta6le ("f8597266b8175aa4ee0e9488992667d6cf1edc35" . "1ffda2f3f0a768cfdebd63db5326085e3db94c25") (collects #"racket" #"base.rkt") (collects #"racket" #"runtime-config.rkt") (collects #"yosys" #"generic.rkt") (collects #"yosys" #"meta.rkt") (collects #"yosys" #"parameters.rkt"))
