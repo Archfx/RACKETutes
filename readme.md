@@ -8,4 +8,4 @@ RackeTutes is a tutorial series for Racket and Rosette solver-aided programming 
 1. [Setup](https://archfx.github.io/posts/2023/04/racketutes1/)
 2. [Racket101](https://archfx.github.io/posts/2023/04/racketutes2/)
 3. [Rosette101](https://archfx.github.io/posts/2023/04/racketutes3/)
-4. [Veri(fy)log]()
+4. [Veri(fy)log](https://archfx.github.io/posts/2023/04/racketutes4/)
