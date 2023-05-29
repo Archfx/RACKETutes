@@ -196,10 +196,10 @@ The example specification for the application code is defined below. In addition
 
 State machine refinement is the systematic process of transforming an abstract or high-level specification of a system into a more detailed and concrete representation while preserving the intended behavior and properties. It involves incrementally adding more specific details to the states, transitions, and actions of a state machine, ensuring consistency with the abstract specification and enabling stepwise development, formal analysis, and verification of complex systems.
 
-Serval asks for four specification inputs,
-  1. A definition of specification state
-  2. A functional specification that describes the intended behavior, 
-  3. An abstraction function (AF) that maps an implementation state to a specification state
+Serval asks for four specification inputs.
+  1. A definition of specification state.
+  2. A functional specification that describes the intended behavior.
+  3. An abstraction function (AF) that maps an implementation state to a specification state.
   4. A representation invariant (RI) over an implementation state that must hold before and after executing a program.
 
 ### Example State-machine refinement
