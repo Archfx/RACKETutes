@@ -2,7 +2,7 @@
 
 Previously we looked at the verification of Verilog hardware implementations. In this post, we will be looking at the verification of firmware or systems code. Here the hardware implementation is abstracted with Instruction Level Abstraction (ILA). This allows us to make complex verification problems more tractable.
 
-ILAS refers to a level of abstraction in computer systems design and analysis that focuses on the behavior and functionality of individual instructions within a processor or microarchitecture. It involves representing and reasoning about instructions as fundamental units of computation, abstracting away lower-level details and complexities. At the instruction level, the emphasis is on understanding the functionality and effects of instructions, including their operation, data flow, dependencies, and control flow. ILA provides a higher-level perspective that allows for the analysis of programs and systems without getting into the intricacies of the underlying hardware implementation.
+ILA refers to a level of abstraction in computer systems design and analysis that focuses on the behavior and functionality of individual instructions within a processor or microarchitecture. It involves representing and reasoning about instructions as fundamental units of computation, abstracting away lower-level details and complexities. At the instruction level, the emphasis is on understanding the functionality and effects of instructions, including their operation, data flow, dependencies, and control flow. ILA provides a higher-level perspective that allows for the analysis of programs and systems without getting into the intricacies of the underlying hardware implementation.
 
 ## Setup
 
@@ -15,7 +15,7 @@ docker pull archfx/serval
 
 otherthan that every step for the environment stays the same as the [previous setup](https://archfx.github.io/posts/2023/04/racketutes1/). In addition to Racket, Rosette, Z3 and Serval this container consists of RISC-V tool-chain components which will allow us to compile and verify RISC-V systems code which we will look in future post.
 
-This post as a Jupyter Notebook is available [here]().
+This post as a Jupyter Notebook is available [here](https://github.com/Archfx/RACKETutes/blob/main/serval/toyrv.ipynb).
 
 
 ## Serval
@@ -196,6 +196,12 @@ The example specification for the application code is defined below. In addition
 
 State machine refinement is the systematic process of transforming an abstract or high-level specification of a system into a more detailed and concrete representation while preserving the intended behavior and properties. It involves incrementally adding more specific details to the states, transitions, and actions of a state machine, ensuring consistency with the abstract specification and enabling stepwise development, formal analysis, and verification of complex systems.
 
+Serval asks for four specification inputs,
+  1. A definition of specification state
+  2. A functional specification that describes the intended behavior, 
+  3. An abstraction function (AF) that maps an implementation state to a specification state
+  4. A representation invariant (RI) over an implementation state that must hold before and after executing a program.
+
 ### Example State-machine refinement
 
 State-machine refinement is evaluated symbolically. Serval defines the `serval:verify-refinement` construct to feed corresponding components such as implementation, specification, etc into the verification problem. Example state-machine refinement for the implementation is given below,
@@ -239,7 +245,9 @@ Safety properties in formal verification refer to specifications that assert the
 
 ### Example Safety property
 
-Serval defines the `serval:check-step-consistency` construct to feed state-related data, which will be used for the safety property verification. Example safety property for the implementation is given below,
+Serval defines the `serval:check-step-consistency` construct to feed state-related data, which will be used for the safety property verification. An example of safety property for the implementation is given below,
+
+Let's consider an example safety property with the functional specification of the sign program. Suppose one wants to verify that its result depends only on register `a0`, independent of the initial value in `a1`. One may use a standard noninterference property, step consistency, which asks for an unwinding relation `∼` over two specification states `s1` and `s2` as stated in the following definition.
 
 
 
@@ -269,18 +277,13 @@ Finally, we execute the verification process by invoking the Racket unit testing
   (test-case+ "ToyRISC Safety" (verify-safety))))
 ```
 
-    ToyRISC tests
-    [ RUN      ] "ToyRISC Refinement"
-    [       OK ] "ToyRISC Refinement" (96ms cpu) (806ms real) (37 terms)
-    [ RUN      ] "ToyRISC Safety"
-    [       OK ] "ToyRISC Safety" (28ms cpu) (694ms real) (27 terms)
-    2 success(es) 0 failure(s) 0 error(s) 2 test(s) run
+<code>    ToyRISC tests <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;    [ RUN      ] "ToyRISC Refinement"<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;    [       OK ] "ToyRISC Refinement" (96ms cpu) (806ms real) (37 terms)<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;    [ RUN      ] "ToyRISC Safety"<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;    [       OK ] "ToyRISC Safety" (28ms cpu) (694ms real) (27 terms)<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;    2 success(es) 0 failure(s) 0 error(s) 2 test(s) run </code>
 
-
-
-
-
-<code>0</code>
 
 
 
@@ -318,28 +321,21 @@ Let's modify the implementation a bit to introduce an error to observe the behav
   (test-case+ "ToyRISC Refinement" (fail-verify-refinement))))
 ```
 
-    ToyRISC tests
-    [ RUN      ] "ToyRISC Refinement"
-    Failed assertions:
+<code>    ToyRISC tests <br>
+    [ RUN      ] "ToyRISC Refinement"<br>
+    Failed assertions:<br>
+    --------------------<br>
+    ToyRISC tests > ToyRISC Refinement<br>
+    FAILURE<br>
+    name:       check-unsat?<br>
+    location:   /serval/serval/lib/unittest.rkt:46:13<br>
+    params:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;      '((model<br>
+&nbsp;&nbsp;&nbsp;&nbsp;      [X -1]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;      [a0 -1]))<br>
+    --------------------<br>
+    0 success(es) 1 failure(s) 0 error(s) 1 test(s) run</code>
 
-
-    --------------------
-    ToyRISC tests > ToyRISC Refinement
-    FAILURE
-    name:       check-unsat?
-    location:   /serval/serval/lib/unittest.rkt:46:13
-    params:
-      '((model
-       [X -1]
-       [a0 -1]))
-    --------------------
-    0 success(es) 1 failure(s) 0 error(s) 1 test(s) run
-
-
-
-
-
-<code>1</code>
 
 
 
