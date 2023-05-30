@@ -1,7 +1,10 @@
- <picture>
+
+<p align="center">
+<picture>
   <source srcset="/images/racketutes-w.svg" media="(prefers-color-scheme: dark)">
     <img src="/images/racketutes.svg">
   </picture>
+ </p>
 
 RackeTutes is a tutorial series for Racket and Rosette solver-aided programming language to promote "Secure and validated" hardware designs with interactive and human-readable proofs.
 
